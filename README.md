@@ -55,41 +55,41 @@ docker build -t imagem .
 docker run -d -p 8080:8080 imagem
 
 //Criar grupo de recurso
-az group create --name rg-cp5 --location eastus
+az group create --name rg-devopsCP --location eastus
  
 //Criar ACR
-az acr create --resource-group rg-cp5 --name acrcp5 --sku Basic
+az acr create --resource-group rg-devopsCP --name escolaapi --sku Basic
  
 //Logar no ACR
-az acr login --name acrcp5
+az acr login --name escolaapi
 
 //Colocar tag pra subir no ACR
-docker tag imagem acrcp5.azurecr.io/rm552342-cp5:v1
+docker tag imagem escolaapi.azurecr.io/escolaapi:v1
 
 //Subir no ACR
-docker push acrcp5.azurecr.io/rm552342-cp5:v1
+docker push escolaapi.azurecr.io/escolaapi:v1
  
 //Testar puxando imagem do ACR local
-//docker run -d -p 8080:8080 acrcp5.azurecr.io/rm552342-cp5:v1
+//docker run -d -p 8081:8081 escolaapi.azurecr.io/escolaapi:v1
 
 //Entrar no recurso criado, configurações chaves de acesso e habilitar a caixinha de admin
 
 //Logar novamente usando a senha gerada pelo azure
-az acr login --name acrcp5 --username acrcp5 --password colocar-a-senha-aqui
+az acr login --name escolaapi --username escolaapi --password colocar-a-senha-aqui
 
 
 az container create `
---resource-group rg-cp5 `
---name acicp5rm552342 `
---image acrcp5.azurecr.io/rm552342-cp5:v1 `
+--resource-group rg-devopsCP `
+--name escolaapi `
+--image escolaapi.azurecr.io/escolaapi:v1 `
 --cpu 1 `
 --memory 1 `
---registry-login-server acrcp5.azurecr.io `
---registry-username acrcp5 `
+--registry-login-server escolaapi.azurecr.io `
+--registry-username escolaapi `
 --registry-password colocar-a-senha-aqui `
 --ip-address Public `
---dns-name-label acicp5rm552342 `
---ports 3000 80 8080
+--dns-name-label escolaapi `
+--ports 8081
 ```
 
 - Script sql(Oracle):
