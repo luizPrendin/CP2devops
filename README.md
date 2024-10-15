@@ -1,7 +1,7 @@
 # CP2devops
 
 # Video do Youtube:
--- https://www.youtube.com/watch?v=ohHoCZEzdEk
+-- https://www.youtube.com/watch?v=ug1Ljq5oHAY
 
 # Documentação
 
