@@ -110,6 +110,60 @@ CREATE TABLE ALUNO (
 );
 
 ```
+Esta API permite gerenciar alunos e professores, fornecendo operações de CRUD (Criar, Ler, Atualizar e Excluir) para ambas as entidades.
+
+## Endpoints
+
+### Professores
+
+- **POST /professores**: Cria um novo professor.
+- **GET /professores**: Retorna todos os professores cadastrados.
+- **GET /professores/{id}**: Retorna um professor específico com base no seu `id`.
+- **PUT /professores/{id}**: Atualiza os dados de um professor existente.
+- **DELETE /professores/{id}**: Exclui um professor.
+
+### Alunos
+
+- **POST /alunos**: Cria um novo aluno.
+- **GET /alunos**: Retorna todos os alunos cadastrados.
+- **GET /alunos/{id}**: Retorna um aluno específico com base no seu `id`.
+- **PUT /alunos/{id}**: Atualiza os dados de um aluno existente.
+- **DELETE /alunos/{id}**: Exclui um aluno.
+
+---
+
+## Exemplo de Requisições e Respostas
+
+### Professores
+
+#### Criar Professor (POST `/professores`)
+
+```Json
+{
+  "nome": "João Silva"
+}
+```
+#### Atualizar (Put `/professores/{id}`)
+```Json
+{
+  "nome": "João da Silva Atualizado"
+}
+```
+#### Criar aluno (POST `/alunos`)
+```Json
+{
+  "nome": "Carlos Pereira",
+  "professorId": 2
+}
+```
+#### Atualizar (Put `/alunos/{id}`)
+```Json
+{
+  "nome": "Carlos Pereira Atualizado",
+  "professorId": 2
+}
+```
+
 
 # Integrantes
 - Luiz Felipe RM552475
